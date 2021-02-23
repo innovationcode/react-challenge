@@ -1,0 +1,82 @@
+.header_main {
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid black; */
+  font-family: "arial";
+  padding: 20px 0px;
+  box-shadow: 0px 2px 5px #f0bc8f;
+}
+
+.header_top_logo_social {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex: 1;
+  padding-bottom: 15px;
+}
+
+.header_logo {
+  position: relative;
+}
+
+.header_social_cart {
+  display: flex;
+  position: absolute;
+  left: 85%;
+}
+
+.header_social_cart li {
+  text-decoration: none;
+  list-style-type: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  color: white;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.cart_quantity_number {
+  width: 20px;
+  height: 17px;
+  border-radius: 50%;
+  border: 1px solid #008b8b;
+  font-size: 10px;
+  position: absolute;
+  left: 96%;
+  z-index: 1;
+  padding-top: 1.9%;
+  bottom: 50%;
+}
+
+.cart-icon-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: #008b8b;
+}
+
+.header_bottom_navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid red; */
+}
+
+.header_bottom_navbar li {
+  text-decoration: none;
+  list-style-type: none;
+  margin: 5px 50px;
+  cursor: pointer;
+  /* font-family: "Yu Gothic Light" !important; */
+}
+.header_bottom_navbar li:hover {
+  color: #008b8b;
+}
+
+.header_social_buttons {
+  display: block;
+  margin: auto;
+  margin-top: 3.6px;
+  font-size: 1rem !important;
+}

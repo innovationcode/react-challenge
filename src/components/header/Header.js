@@ -11,7 +11,7 @@ const Header = () => {
     <div className="header_main">
       <div className="header_top_logo_social">
         <div className="header_logo">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/220px-Airbnb_Logo_B%C3%A9lo.svg.png" />
+          <img src= './tnooklogo.png' />
         </div>
 
         <div className="header_social_cart">
