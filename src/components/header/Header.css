@@ -41,11 +41,12 @@
   height: 17px;
   border-radius: 50%;
   border: 1px solid #008b8b;
-  font-size: 10px;
+  font-size: 12px;
   position: absolute;
   left: 96%;
   z-index: 1;
   padding-top: 1.9%;
+  padding-left: 2%;
   bottom: 50%;
 }
 

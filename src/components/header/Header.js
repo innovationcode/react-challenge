@@ -11,12 +11,12 @@ const Header = () => {
     <div className="header_main">
       <div className="header_top_logo_social">
         <div className="header_logo">
-          <img src= './tnooklogo.png' />
+          <img src= './assets/tnooklogo.jpg' />
         </div>
 
         <div className="header_social_cart">
           <li style={{ background: "#DEB887" }}>
-            <InstagramIcon className="social_buttons" />
+            <InstagramIcon className="social_buttons"/>
           </li>
           <li style={{ background: "#cd5c5c" }}>
             <TwitterIcon className="social_buttons" />
@@ -29,7 +29,7 @@ const Header = () => {
           </li>
           <span className="cart-icon-block">
             <span style={{ fontSize: "13px", padding: "4px 10px" }}>cart</span>
-            <ShoppingCartIcon />
+            <ShoppingCartIcon style = {{cursor:'pointer'}}/>
             <span className="cart_quantity_number">20</span>
           </span>
         </div>

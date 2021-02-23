@@ -1,4 +1,5 @@
 import Header from './components/header/Header.js';
+import Footer from './components/footer/Footer.js';
 
 import './App.css';
 
@@ -7,6 +8,7 @@ const App = () => {
     <div className="App">
       <Header />
 
+      <Footer />
     </div>
   );
 }
