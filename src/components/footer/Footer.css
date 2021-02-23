@@ -1,0 +1,54 @@
+.footer_main {
+  background-color: rgb(233, 139, 111);
+  height: 25vh;
+  padding: 50px 200px;
+  display: flex;
+  justify-content: space-between;
+
+  /*  */
+  margin-top: 550px;
+}
+
+.footer_main li {
+  text-decoration: none;
+  list-style-type: none;
+  text-align: left;
+  padding: 3px;
+  color: rgb(90, 88, 88);
+  font-size: 15px;
+}
+
+.footer_main h3 {
+  text-align: left;
+  color: #008b8b;
+  font-size: 17px;
+  padding-bottom: 15px;
+  letter-spacing: 1.1px;
+}
+
+.customer_care {
+  margin-left: 150px;
+}
+
+.footer_social_cart {
+  display: flex;
+}
+
+.footer_social_cart li {
+  text-decoration: none;
+  list-style-type: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: rgb(233, 139, 111);
+  margin-right: 5px;
+  cursor: pointer;
+  background-color: mintcream;
+}
+
+.footer_social_cart .social_buttons {
+  display: block;
+  margin: auto;
+  margin-top: 3.8px;
+  font-size: 22px;
+}
