@@ -14,7 +14,7 @@ const App = () => {
       <Header />
 
       <Route exact path={["/", "/babies"]} component={ProductList} />
-      <Route exact path={["/product_detail"]} component={ProductDetail} />
+      <Route exact path={["/product_detail/:id"]} component={ProductDetail }/>
       <Route exact path="/cart" component={Cart} />
 
       <Footer />

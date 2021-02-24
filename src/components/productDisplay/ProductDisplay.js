@@ -1,18 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
 
 import './ProductDisplay.css'
 
 const ProductDisplay = ({ product }) => {
+
+      console.log("Product display product id ",product.product_id)
+
       return (
             <div className = "productdisplay_main">
-                  <div>
-                        <img src = {product.image}/>
-                  </div>
+                  <Link to= {`/product_detail/${product.product_id}`}  className = "no-decoration">
+                        <div>
+                              <img src = {product.image}/>
+                        </div>
 
-                  <div>
-                        <p>{product.title}</p>
-                        <p style = {{fontWeight:'500'}}>$ {product.price}</p>
-                  </div>
+                        <div>
+                              <p >{product.title}</p>
+                              <p style = {{fontWeight:'500'}}>$ {product.price}</p>
+                        </div>
+                  </Link>
             </div>
       )
 }

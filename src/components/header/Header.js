@@ -5,7 +5,7 @@ import TwitterIcon from "@material-ui/icons/Twitter";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import PinterestIcon from "@material-ui/icons/Pinterest";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-// import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Logo from './../../assets/tnooklogo.jpg';
 
 
@@ -40,11 +40,11 @@ const Header = () => {
       </div>
 
       <div className="header_bottom_navbar">
-        <li>new arrivals</li>
-        <li>babies</li>
-        <li>girls</li>
-        <li>boys</li>
-        <li>sale</li>
+        <Link to = '/babies' className = "no-decoration"><li>new arrivals</li></Link>
+        <Link to = '/babies' className = "no-decoration"><li>babies</li></Link>
+        <Link to = '/babies' className = "no-decoration"><li>girls</li></Link>
+        <Link to = '/babies' className = "no-decoration"><li>boys</li></Link>
+        <Link to = '/babies' className = "no-decoration"><li>sale</li></Link>
       </div>
     </div>
   );
