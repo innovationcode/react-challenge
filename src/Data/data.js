@@ -4,7 +4,7 @@ export const products = [
         title: "Zip Romper, Woodland Animals",
         size: '12-24 months',
         color:'teal',
-        price: 32.00,
+        price: 32.99,
         image:
           "https://cdn.shoplightspeed.com/shops/635527/files/19444771/800x1024x1/noomie-noomie-lightning-bolt-snap-footie.jpg"
       },
@@ -13,7 +13,7 @@ export const products = [
             title: "Zip Romper, Woodland Animals",
             size: '12-24 months',
             color:'teal',
-            price: 32.00,
+            price: 32.25,
             image:
               "https://cdn.shoplightspeed.com/shops/635527/files/19444771/800x1024x1/noomie-noomie-lightning-bolt-snap-footie.jpg"
           },
@@ -22,7 +22,7 @@ export const products = [
             title: "Zip Romper, Woodland Animals",
             size: '12-24 months',
             color:'teal',
-            price: 32.00,
+            price: 32.09,
             image:
               "https://cdn.shoplightspeed.com/shops/635527/files/19444771/800x1024x1/noomie-noomie-lightning-bolt-snap-footie.jpg"
           },
@@ -31,7 +31,7 @@ export const products = [
             title: "Zip Romper, Woodland Animals",
             size: '12-24 months',
             color:'teal',
-            price: 32.00,
+            price: 32.88,
             image:
               "https://cdn.shoplightspeed.com/shops/635527/files/19444771/800x1024x1/noomie-noomie-lightning-bolt-snap-footie.jpg"
           },
@@ -40,7 +40,7 @@ export const products = [
             title: "Zip Romper, Woodland Animals",
             size: '12-24 months',
             color:'teal',
-            price: 32.00,
+            price: 32.96,
             image:
               "https://cdn.shoplightspeed.com/shops/635527/files/19444771/800x1024x1/noomie-noomie-lightning-bolt-snap-footie.jpg"
           },
@@ -49,7 +49,7 @@ export const products = [
             title: "Zip Romper, Woodland Animals",
             size: '12-24 months',
             color:'teal',
-            price: 32.00,
+            price: 32.32,
             image:
             "https://cdn.shoplightspeed.com/shops/635527/files/19444771/800x1024x1/noomie-noomie-lightning-bolt-snap-footie.jpg"
 

@@ -5,6 +5,7 @@ import TwitterIcon from "@material-ui/icons/Twitter";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import PinterestIcon from "@material-ui/icons/Pinterest";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+// import {Link} from 'react-router-dom';
 import Logo from './../../assets/tnooklogo.jpg';
 
 

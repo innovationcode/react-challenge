@@ -1,12 +1,15 @@
 .productlist_main {
-  background-color: rgb(59, 177, 137);
   width: 70vw;
   min-height: 55vh;
   max-height: auto;
   margin: 0 auto;
+  margin-top: 5px;
 }
 
 .productlist_inner {
+  width: 98%;
   display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   flex-wrap: wrap;
 }

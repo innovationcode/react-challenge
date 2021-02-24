@@ -1,0 +1,15 @@
+.productdisplay_main {
+  padding: 30px;
+  margin: 30px;
+  box-shadow: 0 18px 53px 0 rgb(0 0 0 / 18%);
+  cursor: pointer;
+}
+
+.productdisplay_main img {
+  width: 280px;
+  height: 380px;
+}
+
+.productdisplay_main p {
+  margin: 10px 20px;
+}
