@@ -19,6 +19,11 @@
   position: relative;
 }
 
+.header_logo img {
+  width: 110px;
+  height: 100px;
+}
+
 .header_social_cart {
   display: flex;
   position: absolute;
@@ -78,6 +83,7 @@
 .header_social_buttons {
   display: block;
   margin: auto;
-  margin-top: 3.6px;
+  /* margin-top: 3.6px; */
   font-size: 1rem !important;
+  padding: 4px;
 }
