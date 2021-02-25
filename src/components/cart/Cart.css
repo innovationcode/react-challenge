@@ -10,3 +10,19 @@
   flex-direction: column;
   padding-top: 20px;
 }
+
+.cart_item_headers {
+  border-bottom: 1px solid rgb(238, 182, 98);
+  display: flex;
+  padding-top: 32px;
+  padding-bottom: 5px;
+}
+
+.cart_item_headers p {
+  margin-right: 230px;
+  padding-left: 4px;
+}
+
+.cart_item_list_top {
+  border-bottom: 1px solid rgb(238, 182, 98);
+}

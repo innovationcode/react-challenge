@@ -1,7 +1,6 @@
 import React from 'react'
-
-// import Subtotal from "./Subtotal.js";
-// import ItemInCart from "./ItemInCart.js";
+import Subtotal from "./../subtotal/SubTotal.js";
+import ItemInCart from './../itemInCart/ItemInCart.js';
 import { useStateValue } from './../../reducer/StateProvider.js';
 
 import './Cart.css';
@@ -18,14 +17,20 @@ const Cart = () => {
                   {cart.length ? (
                   <div className="cart_item_list">
                         <div className="cart_item_list_top">
+                              <div className= "cart_item_headers">
+                                    <p>item</p>
+                                    <p style = {{marginLeft: '310px'}}>price</p>
+                                    <p>quantity</p>
+                                    <p>total</p>
+                              </div>
+
                               {cart.map((cartItem) => (
-                                    // <ItemInCart product={cartItem} />
-                                    <h4>cart-item</h4>
+                                    <ItemInCart product={cartItem} />
                               ))}
                         </div>
 
                         <div className="cart_item_list_bottom">
-                              {/* <Subtotal /> */}
+                              <Subtotal />
                         </div>
                   </div>
             ) : (

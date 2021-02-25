@@ -1,0 +1,29 @@
+.item_in_cart_main {
+  display: flex;
+}
+
+.item-in-cart-first {
+  display: flex;
+  padding: 15px 3px;
+}
+
+.no-decoration {
+  text-decoration: none;
+  color: rgb(2, 109, 109);
+}
+
+.delete {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: rgb(81, 8, 116);
+  color: white;
+  font-size: 13px;
+  margin-left: 83px;
+  cursor: pointer;
+}
+
+.quantity_button {
+  border: none;
+  font-size: 16px;
+}

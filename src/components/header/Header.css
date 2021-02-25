@@ -1,7 +1,6 @@
 .header_main {
   display: flex;
   flex-direction: column;
-  /* border: 1px solid black; */
   font-family: "arial";
   padding: 20px 0px;
   box-shadow: 0px 2px 5px #f0bc8f;
@@ -66,7 +65,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* border: 1px solid red; */
 }
 
 .header_bottom_navbar li {
@@ -74,21 +72,24 @@
   list-style-type: none;
   margin: 5px 50px;
   cursor: pointer;
-  /* font-family: "Yu Gothic Light" !important; */
 }
-.header_bottom_navbar li:hover {
+
+.header_bottom_navbar a:hover {
   color: #008b8b;
 }
 
 .header_social_buttons {
   display: block;
   margin: auto;
-  /* margin-top: 3.6px; */
   font-size: 1rem !important;
   padding: 4px;
 }
 
 .no-decoration {
   text-decoration: none;
+  color: black;
+}
+
+.header_bottom_navbar a {
   color: black;
 }

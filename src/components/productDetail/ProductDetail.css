@@ -36,7 +36,7 @@
   margin-left: 15px;
   margin-right: 22px;
   font-weight: lighter;
-  padding: 5px;
+  padding: 50px;
   font-family: sans-serif;
   margin: 25px 0px;
 }
@@ -105,4 +105,25 @@
 .size-radio-buttons input[type="radio"] {
   margin: 5px;
   margin-right: 22px;
+}
+
+.related_products {
+  width: 125px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.related_products img {
+  height: 150px;
+  width: 90%;
+  display: block;
+  margin: 0;
+}
+
+.related_products p {
+  width: 100%;
+  font-size: 12px;
 }

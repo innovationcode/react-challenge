@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useStateValue } from './../../reducer/StateProvider.js';
 import { products } from './../../Data/data.js'
+import { Link } from  'react-router-dom';
 
 import './ProductDetail.css'
 
@@ -26,7 +27,7 @@ const ProductDetail = (id) => {
 
       const handleColor = (e) => {
             e.preventDefault();
-            setSize(e.target.value)
+            setColor(e.target.value)
       }
 
       const quantityUp = () => {
@@ -112,6 +113,20 @@ const ProductDetail = (id) => {
 
                   <div className = "productdetail_related_products">
                         <p style = {{marginBottom: '20px', fontSize:'17px'}}>Related Products</p>
+                        <div style = {{display:'flex', justifyContent:'space-evenly'}}>                       
+                              {products.map(product => (
+                                    <div key = {product.product_id}>
+                                    {product.product_id < 6? ( 
+                                          
+                                          <div className = "related_products">
+                                                      <img src={product.image}/>
+                                                      <p>{product.title}</p>
+                                                      <p>${product.price}</p>
+                                          </div>
+                                    ) : null}
+                              </div>
+                        ))}
+                        </div>
                   </div>
             </div>
       )
