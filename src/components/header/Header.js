@@ -7,10 +7,11 @@ import PinterestIcon from "@material-ui/icons/Pinterest";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import {Link} from 'react-router-dom';
 import Logo from './../../assets/tnooklogo.jpg';
-
-
+import { useStateValue } from './../../reducer/StateProvider.js';
 
 const Header = () => {
+  const [{ cart }, dispatch] = useStateValue();
+
   return (
     <div className="header_main">
       <div className="header_top_logo_social">
@@ -33,8 +34,10 @@ const Header = () => {
           </li>
           <span className="cart-icon-block">
             <span style={{ fontSize: "13px", padding: "4px 10px" }}>cart</span>
-            <ShoppingCartIcon style = {{cursor:'pointer'}}/>
-            <span className="cart_quantity_number">20</span>
+            <Link to="/cart" className="no-decoration">
+              <ShoppingCartIcon style = {{cursor:'pointer', color:'#008B8B'}}/>
+            </Link>
+            <span className="cart_quantity_number">{cart.length}</span>
           </span>
         </div>
       </div>

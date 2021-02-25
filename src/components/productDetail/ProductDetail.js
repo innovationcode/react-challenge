@@ -1,17 +1,64 @@
 import React, { useState } from 'react'
+import { useStateValue } from './../../reducer/StateProvider.js';
+import { products } from './../../Data/data.js'
 
 import './ProductDetail.css'
 
-import { products } from './../../Data/data.js'
-
 const ProductDetail = (id) => {
-      console.log("ID  : ", id)
-      console.log("ID  : ", id.match.params.id)
-      const pr = products[id.match.params.id-1];
+      const [{ cart }, dispatch] = useStateValue();
+      const [size, setSize] = useState('')
+      const [color, setColor] = useState('')
+      const [quantity, setQuantity] = useState(1)
 
+
+      // console.log("ID  : ", id)
+      // console.log("ID  : ", id.match.params.id)
+      const pr = products[id.match.params.id-1];
       const [productLocal, setProductLocal] = useState(pr);
 
       console.log("Product Local in product detail  ",productLocal)
+      console.log("Current cartBasket : ", cart);
+
+      const handleSize = (e) => {
+            e.preventDefault();
+            setSize(e.target.value)
+      }
+
+      const handleColor = (e) => {
+            e.preventDefault();
+            setSize(e.target.value)
+      }
+
+      const quantityUp = () => {
+            setQuantity(quantity + 1) 
+      }
+
+      const quantityDown = () => {
+            if(quantity > 1) {
+                  setQuantity(quantity - 1) 
+            }else {
+                  alert('Minimum quantity 1')
+            }  
+      }
+
+      const addToCart = () => {
+            if(!size && !color) {
+                  alert("Select size and color")
+            } else {
+                  dispatch({
+                        type: "ADD_TO_CART",
+                        item: {
+                              product_id: productLocal.product_id,
+                              title: productLocal.title,
+                              price: productLocal.price,
+                              image: productLocal.image,
+                              quantity: quantity,
+                              size : size,
+                              color: color
+                        }
+                  });
+            }
+      };
 
       return (
             <div className = "productdetail_main">
@@ -29,23 +76,29 @@ const ProductDetail = (id) => {
                               <div className = "productdetail_size_color">
                                     <div className = "size-radio-buttons">
                                           <p style = {{paddingBottom:'10px'}}>size <span style = {{color:'rgb(2, 109, 109)'}}>: size chart</span></p>
-                                          <input type="radio" name="size" value="0-12 months"/>0-12 months<br/>
-                                          <input type="radio" name="size" value="12-24 months"/>12-24 months<br/>
-                                          <input type="radio" name="size" value="2-5 years"/>2-5 years<br/>
-                                          <input type="radio" name="size" value="6-12 years"/>6-12 years<br/>
+                                          <form onChange = {handleSize}>
+                                                <input type="radio" name="size" value="0-12 months"/>0-12 months<br/>
+                                                <input type="radio" name="size" value="12-24 months"/>12-24 months<br/>
+                                                <input type="radio" name="size" value="2-5 years"/>2-5 years<br/>
+                                                <input type="radio" name="size" value="6-12 years"/>6-12 years<br/>
+                                          </form>
                                     </div>
                                     <div className = "size-radio-buttons">
                                           <p style = {{paddingBottom:'10px'}}>color : required</p>
-                                          <input type="radio" name="color" value="0-12 months"/>Teal<br/>
-                                          <input type="radio" name="color" value="12-24 months"/>White<br/>
-                                          <input type="radio" name="color" value="2-5 years"/>Green<br/>
-                                          <input type="radio" name="color" value="6-12 years"/>Blue<br/>
+                                          <form onChange = {handleColor}>
+                                                <input type="radio" name="color" value="Teal"/>Teal<br/>
+                                                <input type="radio" name="color" value="Mustard"/>Mustard<br/>
+                                                <input type="radio" name="color" value="Gray"/>Gray<br/>
+                                                <input type="radio" name="color" value="Forest"/>Forest<br/>
+                                          </form>
                                     </div>
                               </div>
                               <div className = "productdetail_quantity">
-                                    <span>quantity: &nbsp; <button>-</button>&nbsp; &nbsp;1&nbsp; &nbsp;<button>+</button></span>                                    
+                                    <span>quantity: &nbsp; 
+                                          <button onClick = {quantityDown}>-</button> &nbsp; &nbsp;{quantity}&nbsp; &nbsp;
+                                          <button onClick = {quantityUp}>+</button></span>                                    
                               </div>
-                              <button className = "add_to_cart">add to cart</button>
+                              <button className = "add_to_cart" onClick={addToCart}>add to cart</button>
                         </div>
                   </div>
 
