@@ -1,0 +1,10 @@
+.payment_main {
+  width: 45vw;
+  min-height: 55vh;
+  max-height: auto;
+  margin: 0 auto;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+}

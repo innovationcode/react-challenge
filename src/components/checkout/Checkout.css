@@ -40,3 +40,8 @@
   font-size: 13px;
   cursor: pointer;
 }
+
+.checkout_order_summary {
+  padding-top: 10px;
+  margin-left: 20px;
+}

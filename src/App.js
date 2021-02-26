@@ -4,10 +4,13 @@ import ProductList from './components/productList/ProductList.js';
 import ProductDetail from './components/productDetail/ProductDetail.js';
 import Cart from './components/cart/Cart.js';
 import Checkout from './components/checkout/Checkout.js';
-
+import Payment from './components/checkout/payment/Payment.js'
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
 import { Route } from "react-router-dom";
 
 import './App.css';
+
 
 const App = () => {
   return (
@@ -18,6 +21,11 @@ const App = () => {
       <Route exact path={["/product_detail/:id"]} component={ProductDetail }/>
       <Route exact path="/cart" component={Cart} />
       <Route exact path="/checkout" component={Checkout} />
+      <Route exact path="/payment"> 
+          <Elements stripe = {promise}> 
+              <Payment />
+          </Elements>
+      </Route>
 
       <Footer />
     </div>

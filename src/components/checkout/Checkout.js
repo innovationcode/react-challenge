@@ -4,6 +4,8 @@ import { useStateValue } from './../../reducer/StateProvider.js';
 import CheckoutOrderSummary from './checkoutOrderSummary/CheckoutOrderSummary.js';
 import SubTotal from './../../components/subtotal/SubTotal.js';
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
+import CurrencyFormat from "react-currency-format";
+import { getCartTotal } from "./../../reducer/reducer.js";
 
 import './Checkout.css';
 
@@ -18,7 +20,6 @@ const Checkout = () => {
                       {/* First div user info shipping card ... */}
                       <div style = {{display: 'flex',
                                      flexDirection: 'column',
-                                     border: '1px solid red',
                                      minWidth: '55%'
                                     }}
                       >
@@ -26,8 +27,8 @@ const Checkout = () => {
                                     <p>1. customer </p>
                               </div>
                               <div className="user_details">
-                                    <p className = "shipping">2. Shipping </p>
-                                    <span className = "shipping">shipping address</span>
+                                    <p style= {{marginBottom:'8px'}}>2. shipping </p>
+                                    <span className = "shipping">shipping address</span><br/>
                                     <label className = "shipping">country</label>
                                     <CountryDropdown />
                                     <div className = "shipping shipping_row_div">
@@ -82,7 +83,36 @@ const Checkout = () => {
                               </div>
 
                               <div>
-                                    <SubTotal />
+                                    {/* <SubTotal /> */}
+                                    <div className="subtotal_main" style = {{paddingLeft:'0px'}}>
+                                          <CurrencyFormat
+                                                renderText={(value) => (
+                                                      <>
+                                                      <p>
+                                                            Subtotal ({cart.length} items)  <span>{value}</span>
+                                                      </p>
+                                                      <p>Shipping
+                                                            <span style= {{paddingLeft:'170px'}}>enter zipcode</span>
+                                                      </p>
+                                                      <p>Coupon Code 
+                                                            <span>coupon code</span></p>
+                                                      <p>Total  
+                                                            <span style= {{paddingLeft:'230px'}}><strong>{value}</strong></span>
+                                                      </p>
+                                                      </>
+                                                )}
+                                          
+                                                decimalScale={2}
+                                                value={getCartTotal(cart)}
+                                                displayType={"text"}
+                                                thousandSeparator={true}
+                                                prefix={"$"}
+                                          />
+                                          
+                                          <Link to = '/payment'><button>
+                                                Checkout
+                                          </button></Link>
+                                    </div>
                               </div>
                       </div>
                 </div> 
