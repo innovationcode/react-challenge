@@ -3,10 +3,12 @@ import React from "react";
 import CurrencyFormat from "react-currency-format";
 import { useStateValue } from "./../../reducer/StateProvider.js";
 import { getCartTotal } from "./../../reducer/reducer.js";
+import { useHistory } from 'react-router-dom';
 
 import './SubTotal.css'
 
 const Subtotal = () => {
+  const history = useHistory();    
   const [{ cart }, dispatch] = useStateValue();
 
   return (
@@ -15,15 +17,15 @@ const Subtotal = () => {
                   renderText={(value) => (
                         <>
                         <p>
-                              Subtotal ({cart.length} items) : <span>{value}</span>
+                              Subtotal ({cart.length} items)  <span>{value}</span>
                         </p>
-                        <p>Shipping 
-                              <span>enter zipcode</span>
+                        <p>Shipping
+                              <span style= {{paddingLeft:'170px'}}>enter zipcode</span>
                         </p>
                         <p>Coupon Code 
                               <span>coupon code</span></p>
                         <p>Total  
-                              <span><strong>{value}</strong></span>
+                              <span style= {{paddingLeft:'230px'}}><strong>{value}</strong></span>
                         </p>
                         </>
                   )}
@@ -35,7 +37,7 @@ const Subtotal = () => {
                   prefix={"$"}
             />
 
-            <button>
+            <button onClick = {e => history.push('/checkout')}>
                   Checkout
             </button>
     </div>

@@ -12,13 +12,20 @@
   cursor: pointer;
   color: whitesmoke;
   width: 190px;
-  margin-left: 4.5%;
+  margin-left: 50%;
 }
 
 .subtotal_main p {
   padding-bottom: 4px;
   padding-top: 20px;
   box-shadow: 0 8px 6px -10px black;
-  width: 300px;
+  width: 350px;
   padding-left: 20px;
+}
+
+.subtotal_main span {
+  padding-left: 140px;
+  align-items: right;
+  align-self: flex-end;
+  align-content: flex-end;
 }

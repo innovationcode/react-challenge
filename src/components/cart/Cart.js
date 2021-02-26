@@ -2,6 +2,7 @@ import React from 'react'
 import Subtotal from "./../subtotal/SubTotal.js";
 import ItemInCart from './../itemInCart/ItemInCart.js';
 import { useStateValue } from './../../reducer/StateProvider.js';
+import { Link } from 'react-router-dom';
 
 import './Cart.css';
  
@@ -37,6 +38,7 @@ const Cart = () => {
         
                   <div className="cart_item_list">
                         <h3>Your shopping cart is empty</h3>
+                        <Link to = '/' ><p>Start shopping</p></Link>
                   </div>
             )}
             </div>

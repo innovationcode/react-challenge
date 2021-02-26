@@ -21,12 +21,10 @@ const ProductDetail = (id) => {
       // console.log("Current cartBasket : ", cart);
 
       const handleSize = (e) => {
-           // e.preventDefault();
             setSize(e.target.value)
       }
 
       const handleColor = (e) => {
-         //   e.preventDefault();
             setColor(e.target.value)
       }
 

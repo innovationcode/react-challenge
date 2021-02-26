@@ -1,0 +1,15 @@
+.checkout_order_summary_main {
+  display: flex;
+}
+
+.checkout_order_summary_text p {
+  font-size: 12px;
+}
+
+.checkout_order_summary_price p {
+  font-size: 12px;
+}
+
+.checkout_order_summary_price {
+  padding-left: 25px;
+}
