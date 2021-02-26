@@ -15,7 +15,15 @@ const Subtotal = () => {
                   renderText={(value) => (
                         <>
                         <p>
-                              Subtotal ({cart.length} items) : <strong> &nbsp; {value}</strong>
+                              Subtotal ({cart.length} items) : <span>{value}</span>
+                        </p>
+                        <p>Shipping 
+                              <span>enter zipcode</span>
+                        </p>
+                        <p>Coupon Code 
+                              <span>coupon code</span></p>
+                        <p>Total  
+                              <span><strong>{value}</strong></span>
                         </p>
                         </>
                   )}

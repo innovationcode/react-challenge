@@ -1,36 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useStateValue } from './../../reducer/StateProvider.js';
 import { Link } from 'react-router-dom';
-import { getItemTotal } from './../../reducer/reducer.js';
+import { getItemTotal, getCartTotal } from './../../reducer/reducer.js';
 
 import "./ItemInCart.css";
 
 const ItemInCart = ({ product }) => {
-      const qa = product.quantity      
-      console.log("QA ....",qa, typeof(qa))
-
-      const [quantity, setQuantity] = useState(qa)
+      const [quantity, setQuantity] = useState( product.quantity )
       const [{ cart }, dispatch] = useStateValue();
 
-      const quantityUp = (quantity) => {
-            setQuantity(quantity +1)
-      // ************************************************************************************************
-
-            // dispatch({
-            //       type: "UPDATE_CART_QUANTITY",
-            //       item: {
-            //             product_id: product.product_id,
-            //             title: product.title,
-            //             price: product.price,
-            //             image: product.image,
-            //             quantity: quantity,
-            //             size : product.size,
-            //             color: product.color,
-            //       }
-            // });
-      // ************************************************************************************************
-
-      }
+      useEffect(() => {
+            dispatch({
+                  type: "UPDATE_CART_QUANTITY",
+                  item: {
+                        product_id: product.product_id,
+                        title: product.title,
+                        price: product.price,
+                        image: product.image,
+                        quantity: quantity,
+                        size : product.size,
+                        color: product.color,
+                  }
+            });
+      }, [quantity]);
 
       const quantityDown = () => {
             if(quantity > 1) {
@@ -75,12 +67,12 @@ const ItemInCart = ({ product }) => {
                         > - 
                         </button> 
                               &nbsp; &nbsp;{quantity}&nbsp; &nbsp;
-                        <button onClick = {quantityUp}
+                        <button onClick = {()=> setQuantity(quantity+1)}
                                 className = "quantity_button"
                         > + 
                         </button>
                   </span>
-                  <p style = {{marginLeft:'227px'}}>${getItemTotal(product)}</p>
+                        <p style = {{marginLeft:'200px'}}>${getItemTotal(product)}</p>
                   <button className = "delete" onClick = {removeFromCart}>x</button>
             </div>
       </div>

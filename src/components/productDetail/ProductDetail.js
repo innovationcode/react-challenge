@@ -17,16 +17,16 @@ const ProductDetail = (id) => {
       const pr = products[id.match.params.id-1];
       const [productLocal, setProductLocal] = useState(pr);
 
-      console.log("Product Local in product detail  ",productLocal)
-      console.log("Current cartBasket : ", cart);
+      // console.log("Product Local in product detail  ",productLocal)
+      // console.log("Current cartBasket : ", cart);
 
       const handleSize = (e) => {
-            e.preventDefault();
+           // e.preventDefault();
             setSize(e.target.value)
       }
 
       const handleColor = (e) => {
-            e.preventDefault();
+         //   e.preventDefault();
             setColor(e.target.value)
       }
 

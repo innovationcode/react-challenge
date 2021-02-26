@@ -13,10 +13,17 @@ export const getCartTotal = (basket) =>
 export const reducer = (state, action) => {
     switch (action.type) {
         case "ADD_TO_CART":
+          const updateQuantityId_0 = action.item.product_id; 
+          const index2 = (state.cart).findIndex((cartItem) => cartItem.product_id === updateQuantityId_0);  
+          if(index2 >= 0 && state.cart[index2].color === action.item.color && state.cart[index2].size === action.item.size) { 
+              state.cart[index2].quantity += action.item.quantity;
+              return state 
+          } else { 
             return {
               ...state,
               cart: [...state.cart, action.item]
             };
+          }
       
         case "REMOVE_FROM_CART":
             let newBasket = [...state.cart];
@@ -36,7 +43,20 @@ export const reducer = (state, action) => {
             };
       
         case "UPDATE_CART_QUANTITY":
-            console.log(state.cart)
+            const updateQuantityId = action.item.product_id; 
+            console.log("updateQuantityId  .. ",updateQuantityId)
+
+            const index1 = (state.cart).findIndex((cartItem) => cartItem.product_id === updateQuantityId);  
+            console.log("Action quantity  .. ",action.item.quantity)
+            console.log("index  .. ",index1)
+
+            // alert(index1)
+
+            state.cart[index1].quantity = action.item.quantity
+
+            console.log("Updated.. ", state.cart)
+
+            return state;
 
         default:
             return state;

@@ -12,17 +12,17 @@
 }
 
 .cart_item_headers {
-  border-bottom: 1px solid rgb(238, 182, 98);
+  box-shadow: 0 8px 6px -10px black;
   display: flex;
   padding-top: 32px;
   padding-bottom: 5px;
 }
 
 .cart_item_headers p {
-  margin-right: 230px;
-  padding-left: 4px;
+  margin-right: 220px;
+  padding-left: 5px;
 }
 
 .cart_item_list_top {
-  border-bottom: 1px solid rgb(238, 182, 98);
+  box-shadow: 0 8px 6px -10px black;
 }

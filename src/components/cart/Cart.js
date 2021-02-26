@@ -8,7 +8,7 @@ import './Cart.css';
 const Cart = () => {
   const [{ cart }, dispatch] = useStateValue();
 
-  console.log("CARTBASKET", cart);
+//   console.log("CARTBASKET", cart);
 
   return (
       <div className="cart_main">
@@ -18,7 +18,7 @@ const Cart = () => {
                   <div className="cart_item_list">
                         <div className="cart_item_list_top">
                               <div className= "cart_item_headers">
-                                    <p>item</p>
+                                    <p style ={{paddingLeft:'18px'}}>item</p>
                                     <p style = {{marginLeft: '310px'}}>price</p>
                                     <p>quantity</p>
                                     <p>total</p>

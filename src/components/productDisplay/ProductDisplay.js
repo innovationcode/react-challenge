@@ -5,7 +5,7 @@ import './ProductDisplay.css'
 
 const ProductDisplay = ({ product }) => {
 
-      console.log("Product display product id ",product.product_id)
+      // console.log("Product display product id ",product.product_id)
 
       return (
             <div className = "productdisplay_main">
