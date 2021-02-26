@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useStateValue } from './../../reducer/StateProvider.js';
 import { products } from './../../Data/data.js'
-import { Link } from  'react-router-dom';
 
 import './ProductDetail.css'
 

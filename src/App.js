@@ -11,6 +11,7 @@ import { Route } from "react-router-dom";
 
 import './App.css';
 
+// console .log(process.env.REACT_APP_STRIPE_KEY)
 
 const App = () => {
   return (
