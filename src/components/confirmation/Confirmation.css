@@ -1,0 +1,12 @@
+.confirmation_main {
+    width: 70vw;
+  min-height: 55vh;
+  max-height: auto;
+  margin: 0 auto;
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 20px;
+}

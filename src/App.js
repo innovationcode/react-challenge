@@ -8,10 +8,13 @@ import Payment from './components/checkout/payment/Payment.js'
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import { Route } from "react-router-dom";
+import Confirmation from './components/confirmation/Confirmation.js'
 
 import './App.css';
 
 // console .log(process.env.REACT_APP_STRIPE_KEY)
+
+
 
 const App = () => {
   return (
@@ -27,6 +30,7 @@ const App = () => {
               <Payment />
           </Elements>
       </Route>
+      <Route exact path="/confirmation" component = {Confirmation}/> 
 
       <Footer />
     </div>

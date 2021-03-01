@@ -28,7 +28,7 @@ const Checkout = () => {
                               </div>
                               <div className="user_details">
                                     <p style= {{marginBottom:'8px'}}>2. shipping </p>
-                                    <span className = "shipping">shipping address</span><br/>
+                                    {/* <span className = "shipping">shipping address</span><br/>
                                     <label className = "shipping">country</label>
                                     <CountryDropdown />
                                     <div className = "shipping shipping_row_div">
@@ -58,7 +58,81 @@ const Checkout = () => {
                                     <input type="radio" className = "shipping"/>free<br/>
                                     <input type="radio" className = "shipping"/>expedite<br/>
                                     <button className = "submit">submit</button>
-                              </div>
+                              </div> */}
+
+                              {/* ********************************************************* */}
+                              {/* ************************************************************************************************************** */}
+                                    <div class="container_checkout">
+                                          <form>
+                                          <div className = "label_input_column">
+                                                <label for="lname">country</label>
+                                                <CountryDropdown />
+                                                {/* <input type="text" id="country" name="country"/> */}
+                                          </div>
+                                          <div className = 'label_input_row'>
+                                                <div className = "label_input_column">
+                                                      <label for="fname">first name</label>
+                                                      <input type="text" id="fname" name="firstname"/>
+                                                </div>
+                                                <p style= {{width:'20px'}}></p>
+                                                <div className = "label_input_column">
+                                                      <label for="lname">last name</label>
+                                                      <input type="text" id="lname" name="lastname"/>
+                                                </div>
+                                          </div>
+                                          <div className = "label_input_column">
+                                                <label for="lname">address line 1</label>
+                                                <input type="text" id="address1" name="address1"/>
+                                          </div>
+                                          <div className = "label_input_column">
+                                                <label for="lname">address line 2</label>
+                                                <input type="text" id="address2" name="address2"/>
+                                          </div>
+                                          
+                                          <div className = 'label_input_row'>
+                                                <div className = "label_input_column">
+                                                      <label for="fname">city</label>
+                                                      <input type="text" id="city" name="city"/>
+                                                </div>
+                                                <p style= {{width:'20px'}}></p>     
+                                                <div className = "label_input_column">
+                                                      <label for="lname">state</label>
+                                                      <input type="text" id="state" name="state"/>
+                                                </div>
+                                          </div>
+                                          
+                                          
+                                          <div className = 'label_input_row'>
+                                                <div className = "label_input_column">
+                                                      <label for="fname">postal code</label>
+                                                      <input type="text" id="postal" name="postal"/>
+                                                </div>      
+                                                <p style= {{width:'20px'}}></p>                          
+                                                <div className = "label_input_column">
+                                                      <label for="lname">phone number</label>
+                                                      <input type="text" id="phone" name="phone"/>
+                                                </div>
+                                          </div>
+                                          
+                                          <input type="radio"  name="shippingAddress" value="shippingAddress"/>
+                                          <label for="shippingAddress" className= "input_radio_checkout">my billing is same as shipping address</label><br/>
+
+                                          <p style = {{margin:'10px 0px', fontSize:'18px'}}>shipping method</p>
+
+                                          <input type="radio"  name="shippingMethod" value="free" />
+                                          <label className= "input_radio_checkout">free</label><br/>
+                                          
+                                          <input type="radio"  name="shippingMethod" value="express" />
+                                          <label className= "input_radio_checkout">expedia</label><br/>
+                                          
+                                          <br/><br/>
+                                          <input type="submit" value="Submit"/>
+
+                                          </form>
+                                    </div>
+                              </div>                           
+                              
+                              {/* ********************************************************* */}
                               <div className = "user_details">
                                     <p>3. Billing </p>
                               </div>

@@ -81,13 +81,25 @@ const ProductDetail = (id) => {
                                                 <input type="radio" name="size" value="6-12 years"/>6-12 years<br/>
                                           </form>
                                     </div>
-                                    <div className = "size-radio-buttons">
+                                    <div className = "size-radio-buttons" style = {{marginLeft:'18px'}}>
                                           <p style = {{paddingBottom:'10px'}}>color : required</p>
                                           <form onChange = {handleColor}>
-                                                <input type="radio" name="color" value="Teal"/>Teal<br/>
-                                                <input type="radio" name="color" value="Mustard"/>Mustard<br/>
-                                                <input type="radio" name="color" value="Gray"/>Gray<br/>
-                                                <input type="radio" name="color" value="Forest"/>Forest<br/>
+                                                <label class="container">
+                                                      <input type="radio" name="color" value="Teal" />Teal<br/>
+                                                      <span class="circle teal"></span>
+                                                </label>
+                                                <label class="container">
+                                                      <input type="radio" name="color" value="Mustard"/>Mustard<br/>
+                                                      <span class="circle mustard"></span>
+                                                </label>
+                                                <label class="container">
+                                                      <input type="radio" name="color" value="Gray"/>Gray<br/>
+                                                      <span class="circle gray"></span>
+                                                </label>
+                                                <label class="container">
+                                                      <input type="radio" name="color" value="Forest"/>Forest<br/>
+                                                      <span class="circle forest"></span>
+                                                </label>
                                           </form>
                                     </div>
                               </div>

@@ -12,7 +12,8 @@
 }
 
 .productdetail_all_info {
-  /* border: 1px solid red; */
+  border: 1px solid red;
+  width:100%;
   display: flex;
   flex-direction: row;
   height: 70vh;
@@ -23,6 +24,7 @@
   width: 50%;
   align-items: center;
 }
+
 .productdetail_image img {
   min-width: 45%;
   height: 100%;
@@ -96,7 +98,7 @@
   flex-direction: row;
 }
 .size-radio-buttons {
-  width: 39%;
+  width: 44%;
   padding: 15px;
   padding-left: 0px;
   font-size: 13px;
@@ -126,4 +128,82 @@
 .related_products p {
   width: 100%;
   font-size: 12px;
+}
+
+
+
+/* The container */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 7px;
+  margin-top: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  border-radius:50%;
+  background-color: Teal;
+}
+
+.mustard {
+	background-color:#ffdb58;
+}
+.gray {
+	background-color:gray;
+}
+
+.forest {
+		background-color:#178223;
+
+}
+
+  /* Create the checkmark/indicator (hidden when not checked) */
+.circle:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .circle:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .circle:after {
+  left: 3.5px;
+  top: 2px;
+  width: 5px;
+  height: 7px;
+  border: solid white;
+  border-width: 0 1.5px 1.5px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.input_radio_checkout{
+  padding-left: 20px;
 }
