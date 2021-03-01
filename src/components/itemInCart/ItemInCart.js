@@ -8,6 +8,7 @@ import "./ItemInCart.css";
 const ItemInCart = ({ product }) => {
       const [quantity, setQuantity] = useState( product.quantity )
       const [{ cart }, dispatch] = useStateValue();
+      // const [currentProduct, setCurrentProduct] = useState('')
 
       useEffect(() => {
             dispatch({
@@ -20,8 +21,9 @@ const ItemInCart = ({ product }) => {
                         quantity: quantity,
                         size : product.size,
                         color: product.color,
-                  }
-            });
+                  },
+                  
+            })
       }, [quantity]);
 
       const quantityDown = () => {

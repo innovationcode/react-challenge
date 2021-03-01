@@ -14,7 +14,7 @@ import './App.css';
 
 // console .log(process.env.REACT_APP_STRIPE_KEY)
 
-
+const promise = loadStripe(process.env.REACT_APP_STRIPE_KEY)
 
 const App = () => {
   return (
