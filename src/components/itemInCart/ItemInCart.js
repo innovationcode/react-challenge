@@ -41,15 +41,15 @@ const ItemInCart = ({ product }) => {
             });
       };
       
-        const getItemTotal1 = (product) => {
+      // const getItemTotal1 = (product) => {
              
-              console.log(" inside function .. ",  product.price  ,  "   "  , product.quantity )
-            return  product.price * product.quantity 
+      //         console.log(" inside function .. ",  product.price  ,  "   "  , product.quantity )
+      //       return  product.price * product.quantity 
               
-      }
+      // }
 
-      console.log("GET TOTAL RENDERING .. ",getItemTotal, " \n  Just product ", product  )
-      console.log("GET TOTAL RENDERING .. ",  getItemTotal1(product))
+      // console.log("GET TOTAL RENDERING .. ",getItemTotal, " \n  Just product ", product  )
+      // console.log("GET TOTAL RENDERING .. ",  getItemTotal1(product))
 
   return (
       <div className="item_in_cart_main">

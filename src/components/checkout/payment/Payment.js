@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import CurrencyFormat from "react-currency-format";
-import { getCartTotal } from './../../../reducer/reducer.js'
+import { getCartTotal } from './../../../reducer/reducer.js';
 import { useStateValue } from "./../../../reducer/StateProvider.js";
-import { useHistory } from 'react-router-dom'
-import axios from './../../../axios.js'
+import { useHistory } from 'react-router-dom';
+import axios from './../../../axios.js';
+import { db } from './../../../firebase.js';
 
 import './Payment.css'
 
@@ -40,11 +41,23 @@ function Payment() {
                         card: elements.getElement(CardElement)
                   }
             }).then(({ paymentIntent }) => {
+
+                  db.collection('orders')
+                    .doc(paymentIntent.id)
+                    .set({
+                            cart: cart, 
+                            amount: paymentIntent.amount, 
+                            created: paymentIntent.created
+                     })
+                  
                   setSucceeded(true);
                   setError(null);
                   setProcessing(false);
 
-                  history.replace('/')
+                  dispatch({
+                        type :'EMPTY_CART'
+                  })
+                  history.replace('/confirmation')
             })
       }
 

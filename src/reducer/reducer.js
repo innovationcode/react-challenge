@@ -56,7 +56,16 @@ export const reducer = (state, action) => {
             
             console.log("Updated.. ", state.cart)
 
-            return state;
+            return {
+              ...state,
+              cart: state.cart
+            };
+            
+        case "EMPTY_CART":
+            return {
+              ...state,
+              cart: []
+            };
 
         default:
             return state;
