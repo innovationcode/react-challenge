@@ -1,5 +1,6 @@
 .productdetail_main {
-  width: 70vw;
+  /* width: 70vw; */
+  width:100%;
   min-height: 55vh;
   max-height: auto;
   margin: 0 auto;
@@ -193,7 +194,7 @@
 
 /* Style the checkmark/indicator */
 .container .circle:after {
-  left: 3.5px;
+  left: 3.8px;
   top: 2px;
   width: 5px;
   height: 7px;

@@ -10,7 +10,7 @@ const ProductDisplay = ({ product }) => {
       return (
             <div className = "productdisplay_main">
                   <Link to= {`/product_detail/${product.product_id}`}  className = "no-decoration">
-                        <div>
+                        <div style = {{width: '100%'}}>
                               <img src = {product.image}/>
                         </div>
 

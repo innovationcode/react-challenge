@@ -1,5 +1,7 @@
 .cart_main {
-  width: 70vw;
+  max-width: 100%;
+  min-width: 99%;
+  /* width: 70vw; */
   min-height: 55vh;
   max-height: auto;
   margin: 0 auto;

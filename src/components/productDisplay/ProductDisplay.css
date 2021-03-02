@@ -1,13 +1,16 @@
 .productdisplay_main {
+  width: 84%; /* screen size big -- 84%*/
   padding-bottom: 15px;
-  margin: 30px;
+  margin: 25px; /*** 30px*/
   box-shadow: 0 18px 53px 0 rgb(0 0 0 / 18%);
   cursor: pointer;
 }
 
 .productdisplay_main img {
-  width: 280px;
+  /* width: 280px; */
   height: 380px;
+  display: block;
+  margin: auto;
 }
 
 .productdisplay_main p {

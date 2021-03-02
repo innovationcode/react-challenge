@@ -12,7 +12,7 @@ import Confirmation from './components/confirmation/Confirmation.js'
 
 import './App.css';
 
-// console .log(process.env.REACT_APP_STRIPE_KEY)
+console .log("STRIPE API : ",process.env.REACT_APP_STRIPE_KEY)
 
 const promise = loadStripe(process.env.REACT_APP_STRIPE_KEY)
 
@@ -21,17 +21,18 @@ const App = () => {
     <div className="App">
       <Header />
 
-      <Route exact path={["/", "/babies"]} component={ProductList} />
-      <Route exact path={["/product_detail/:id"]} component={ProductDetail }/>
-      <Route exact path="/cart" component={Cart} />
-      <Route exact path="/checkout" component={Checkout} />
-      <Route exact path="/payment"> 
-          <Elements stripe = {promise}> 
-              <Payment />
-          </Elements>
-      </Route>
-      <Route exact path="/confirmation" component = {Confirmation}/> 
-
+      <div className = "app_router_paths">
+        <Route exact path={["/", "/babies"]} component={ProductList} />
+        <Route exact path={["/product_detail/:id"]} component={ProductDetail }/>
+        <Route exact path="/cart" component={Cart} />
+        <Route exact path="/checkout" component={Checkout} />
+        <Route exact path="/payment"> 
+            <Elements stripe = {promise}> 
+                <Payment />
+            </Elements>
+        </Route>
+        <Route exact path="/confirmation" component = {Confirmation}/> 
+      </div>
       <Footer />
     </div>
   );

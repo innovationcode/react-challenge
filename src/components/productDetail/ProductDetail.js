@@ -84,21 +84,21 @@ const ProductDetail = (id) => {
                                     <div className = "size-radio-buttons" style = {{marginLeft:'18px'}}>
                                           <p style = {{paddingBottom:'10px'}}>color : required</p>
                                           <form onChange = {handleColor}>
-                                                <label class="container">
+                                                <label className="container">
                                                       <input type="radio" name="color" value="Teal" />Teal<br/>
-                                                      <span class="circle teal"></span>
+                                                      <span className="circle teal"></span>
                                                 </label>
                                                 <label class="container">
                                                       <input type="radio" name="color" value="Mustard"/>Mustard<br/>
-                                                      <span class="circle mustard"></span>
+                                                      <span className="circle mustard"></span>
                                                 </label>
-                                                <label class="container">
+                                                <label className="container">
                                                       <input type="radio" name="color" value="Gray"/>Gray<br/>
-                                                      <span class="circle gray"></span>
+                                                      <span className="circle gray"></span>
                                                 </label>
                                                 <label class="container">
                                                       <input type="radio" name="color" value="Forest"/>Forest<br/>
-                                                      <span class="circle forest"></span>
+                                                      <span className="circle forest"></span>
                                                 </label>
                                           </form>
                                     </div>

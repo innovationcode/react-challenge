@@ -53,7 +53,7 @@ export const reducer = (state, action) => {
             // alert(index1)
 
             state.cart[index1].quantity = action.item.quantity
-
+            
             console.log("Updated.. ", state.cart)
 
             return state;

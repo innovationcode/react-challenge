@@ -12,7 +12,7 @@ const ProductList = () => {
                         <div className = "productlist_inner">
                               {products.map((product) => (
                                     <div key={product.id} className="product_map">
-                                          <ProductDisplay product={product} />
+                                          <ProductDisplay product={product} key={product.id}/>
                                     </div>
                                ))}
                         </div>

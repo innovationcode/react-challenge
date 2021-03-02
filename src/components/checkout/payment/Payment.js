@@ -19,7 +19,7 @@ function Payment() {
       const [disabled, setDisabled] = useState(true); 
       const [succeeded, setSucceeded] = useState(false);
       const [processing, setProcessing] = useState('');
-      const [clientSecret, setClientSecret] = useState(true)
+      const [clientSecret, setClientSecret] = useState('')
 
       useEffect(() => {
             const getClientSecret = async () => {
@@ -35,7 +35,6 @@ function Payment() {
       const handleSubmitCard = async (event) => {
             event.preventDefault();
             setProcessing(true);
-            clientSecret=clientSecret.toString();
             const payload = await stripe.confirmCardPayment(clientSecret, {
                   payment_method: {
                         card: elements.getElement(CardElement)
@@ -106,3 +105,4 @@ function Payment() {
 }
 
 export default Payment;
+

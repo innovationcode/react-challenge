@@ -1,5 +1,6 @@
 .checkout_main {
-  width: 70vw;
+  width:100%;
+  /* width: 70vw; */
   min-height: 55vh;
   max-height: auto;
   margin: 0 auto;
