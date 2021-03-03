@@ -19,14 +19,14 @@ const Cart = () => {
                   <div className="cart_item_list">
                         <div className="cart_item_list_top">
                               <div className= "cart_item_headers">
-                                    <p style ={{paddingLeft:'18px'}}>item</p>
-                                    <p style = {{marginLeft: '310px'}}>price</p>
-                                    <p>quantity</p>
-                                    <p>total</p>
+                                    <p className = "cart_item_headers_item">item</p>
+                                    <p className = "cart_item_headers_price">price</p>
+                                    <p className = "cart_item_headers_quantity">quantity</p>
+                                    <p className = "cart_item_headers_total">total</p>
                               </div>
 
-                              {cart.map((cartItem) => (
-                                    <ItemInCart product={cartItem} />
+                              {cart.map((cartItem, cartItemIndex) => (
+                                    <ItemInCart product={cartItem} key = {cartItemIndex}/>
                               ))}
                         </div>
 

@@ -5,10 +5,10 @@ import { getItemTotal, getCartTotal } from './../../reducer/reducer.js';
 
 import "./ItemInCart.css";
 
-const ItemInCart = ({ product }) => {
+const ItemInCart = ({ product, cartItemIndex }) => {
+      console.log("cartItemIndex  ============>    ", cartItemIndex)
       const [quantity, setQuantity] = useState( product.quantity )
       const [{ cart }, dispatch] = useStateValue();
-      // const [currentProduct, setCurrentProduct] = useState('')
 
       useEffect(() => {
             dispatch({
@@ -41,23 +41,14 @@ const ItemInCart = ({ product }) => {
             });
       };
       
-      // const getItemTotal1 = (product) => {
-             
-      //         console.log(" inside function .. ",  product.price  ,  "   "  , product.quantity )
-      //       return  product.price * product.quantity 
-              
-      // }
-
-      // console.log("GET TOTAL RENDERING .. ",getItemTotal, " \n  Just product ", product  )
-      // console.log("GET TOTAL RENDERING .. ",  getItemTotal1(product))
-
-  return (
+      
+      return (
       <div className="item_in_cart_main">
             <div className="item-in-cart-first">
                 <div >
                   <img src = {product.image} alt = "product_image" style = {{width: '110px', height: '120px', marginRight:'14px'}}/>
                 </div>
-                <div>
+                <div className = "item-in-cart-first-text">
                   <p>{product.title}</p>
                   <p>size &nbsp;: &nbsp;{product.size}</p>
                   <p>color&nbsp;: &nbsp;{product.color}</p>
@@ -69,20 +60,20 @@ const ItemInCart = ({ product }) => {
                 </div>
             </div>
 
-            <div style = {{display:'flex', paddingTop:'60px'}}>
-                  <p style = {{marginLeft:'194px'}}>${product.price}</p>
-                  <span style = {{marginLeft:'220px'}}>
+            <div className = "quantity_main_div">
+                  <p className = "price">${product.price}</p>
+                  <p className = "quantity_span">
                         <button onClick = {quantityDown}
                                 className = "quantity_button"
                         > - 
                         </button> 
-                              &nbsp; &nbsp;{quantity}&nbsp; &nbsp;
+                            <span style = {{padding: '0px 8px'}}>{quantity}</span>
                         <button onClick = {()=> setQuantity(quantity+1)}
                                 className = "quantity_button"
                         > + 
                         </button>
-                  </span>
-                        <p style = {{marginLeft:'200px'}}>${getItemTotal(product)}</p>
+                  </p>
+                        <p className= "getitemtotal">${getItemTotal(product)}</p>
                   <button className = "delete" onClick = {removeFromCart}>x</button>
             </div>
       </div>

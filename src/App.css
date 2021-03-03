@@ -1,7 +1,7 @@
 .app_router_paths{
     width: 74vw;
     margin: 0 auto;
-    background-color: rgb(209, 174, 243);
     min-height: 70vh;
     max-height: auto;
+    padding-top: 25vh;
 }

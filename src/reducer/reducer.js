@@ -26,6 +26,7 @@ export const reducer = (state, action) => {
           }
       
         case "REMOVE_FROM_CART":
+          console.log("REMOVE_FROM_CART ---- action  : -- ", action.type, action.item)
             let newBasket = [...state.cart];
             const index = state.cart.findIndex(
                 (basketItem) => basketItem.id === action.id
@@ -41,8 +42,8 @@ export const reducer = (state, action) => {
               ...state,
               cart: newBasket
             };
-      
-        case "UPDATE_CART_QUANTITY":
+                  
+       case "UPDATE_CART_QUANTITY":
             const updateQuantityId = action.item.product_id; 
             console.log("updateQuantityId  .. ",updateQuantityId)
 
@@ -60,7 +61,6 @@ export const reducer = (state, action) => {
               ...state,
               cart: state.cart
             };
-            
         case "EMPTY_CART":
             return {
               ...state,

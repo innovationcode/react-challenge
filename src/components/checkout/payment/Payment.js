@@ -57,7 +57,7 @@ function Payment() {
                   dispatch({
                         type :'EMPTY_CART'
                   })
-                  history.replace('/confirmation')
+                  history.replace(`/confirmation/${paymentIntent.id}`)
             })
       }
 

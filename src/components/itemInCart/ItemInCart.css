@@ -19,11 +19,57 @@
   background-color: rgb(81, 8, 116);
   color: white;
   font-size: 13px;
-  margin-left: 83px;
+  margin-left: 50px;
   cursor: pointer;
 }
 
 .quantity_button {
   border: none;
   font-size: 16px;
+}
+
+.quantity_main_div {
+  display: flex; 
+  padding-top: 60px;
+}
+
+.price {
+  margin-left: 194px;
+}
+
+.quantity_span {
+  margin-left: 220px;
+}
+
+@media only screen and (min-width: 1366px) {
+  .item_in_cart_main {
+    min-width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  .item-in-cart-first {
+    width: 30%;
+  }
+  .delete {
+    margin-right: 6px;
+  }
+
+  .quantity_span {
+    display: flex;
+    height: 25px;
+  }
+
+  .item-in-cart-first-text {
+    width:210px;
+  }
+
+  .quantity_main_div .price, .quantity_span, .getitemtotal {
+    /* border: 1px solid gold; */
+    margin-left: 150px;
+  }
+
+  .quantity_main_div .getitemtotal {
+    width:140px;
+
+  }
 }

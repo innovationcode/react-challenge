@@ -31,7 +31,7 @@ const App = () => {
                 <Payment />
             </Elements>
         </Route>
-        <Route exact path="/confirmation" component = {Confirmation}/> 
+        <Route exact path="/confirmation/:order_id" component = {Confirmation}/> 
       </div>
       <Footer />
     </div>

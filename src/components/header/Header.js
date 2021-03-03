@@ -36,8 +36,8 @@ const Header = () => {
             <span style={{ fontSize: "13px", padding: "4px 10px" }}>cart</span>
             <Link to="/cart" className="no-decoration">
               <ShoppingCartIcon style = {{cursor:'pointer', color:'#008B8B'}}/>
+              <span className="cart_quantity_number">{cart.length}</span>
             </Link>
-            <span className="cart_quantity_number">{cart.length}</span>
           </span>
         </div>
       </div>
