@@ -10,30 +10,27 @@ const ItemInCart = ({ product, cartItemIndex }) => {
       const [quantity, setQuantity] = useState( product.quantity )
       const [{ cart }, dispatch] = useStateValue();
 
-      // useEffect(() => {
-      //       dispatch({
-      //             type: "UPDATE_CART_QUANTITY",
-      //             item: cartItemIndex
-                  
-      //       })
-      // }, [quantity]);
       const increaseCartQuantity = (cartItemIndex) => {
+            setQuantity(quantity+1)
             dispatch({
                   type: "INCREASE_CART_QUANTITY",
                   item: cartItemIndex
             });
       };
 
-      const quantityDown = () => {
+      const decreaseCartQuantity = (cartItemIndex) => {
             if(quantity > 1) {
-                  setQuantity(quantity - 1) 
+                  setQuantity(quantity-1)
+                  dispatch({
+                        type: "DECREASE_CART_QUANTITY",
+                        item: cartItemIndex
+                  });
             }else {
                   alert('Minimum quantity 1')
             }  
-      }
-  
+      };
+
       const removeFromCart = (cartItemIndex) => {
-            // alert(cartItemIndex)
             dispatch({
                   type: "REMOVE_FROM_CART",
                   item: cartItemIndex
@@ -62,12 +59,12 @@ const ItemInCart = ({ product, cartItemIndex }) => {
             <div className = "quantity_main_div">
                   <p className = "price">${product.price}</p>
                   <p className = "quantity_span">
-                        <button onClick = {quantityDown}
+                        <button onClick = {()=> {decreaseCartQuantity(cartItemIndex)}}
                                 className = "quantity_button"
                         > - 
                         </button> 
                             <span style = {{padding: '0px 8px'}}>{quantity}</span>
-                        <button onClick = {()=> setQuantity(quantity+1)}
+                        <button onClick = {()=> {increaseCartQuantity(cartItemIndex)}}
                                 className = "quantity_button"
                         > + 
                         </button>

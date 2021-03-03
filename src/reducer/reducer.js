@@ -38,26 +38,20 @@ export const reducer = (state, action) => {
               cart: newCart
             };
                   
-       case "UPDATE_CART_QUANTITY":
-            console.log("UPDATE_QUANTITY... ", action.item)
+        case "INCREASE_CART_QUANTITY":
             state.cart[action.item].quantity += 1
-            // const updateQuantityId = action.item 
-            // console.log("updateQuantityId  .. ",updateQuantityId)
-
-            // const index1 = (state.cart).findIndex((cartItem) => cartItem.product_id === updateQuantityId);  
-            // console.log("Action quantity  .. ",action.item.quantity)
-            // console.log("index  .. ",index1)
-
-            // // alert(index1)
-
-            // state.cart[index1].quantity = action.item.quantity
-            
-            // console.log("Updated.. ", state.cart)
-
             return {
               ...state,
               cart: state.cart
             };
+            
+        case "DECREASE_CART_QUANTITY":
+            state.cart[action.item].quantity -= 1
+            return {
+                ...state,
+                cart: state.cart
+            };        
+
         case "EMPTY_CART":
             return {
               ...state,
