@@ -10,21 +10,19 @@ const ItemInCart = ({ product, cartItemIndex }) => {
       const [quantity, setQuantity] = useState( product.quantity )
       const [{ cart }, dispatch] = useStateValue();
 
-      useEffect(() => {
-            dispatch({
-                  type: "UPDATE_CART_QUANTITY",
-                  item: {
-                        product_id: product.product_id,
-                        title: product.title,
-                        price: product.price,
-                        image: product.image,
-                        quantity: quantity,
-                        size : product.size,
-                        color: product.color,
-                  },
+      // useEffect(() => {
+      //       dispatch({
+      //             type: "UPDATE_CART_QUANTITY",
+      //             item: cartItemIndex
                   
-            })
-      }, [quantity]);
+      //       })
+      // }, [quantity]);
+      const increaseCartQuantity = (cartItemIndex) => {
+            dispatch({
+                  type: "INCREASE_CART_QUANTITY",
+                  item: cartItemIndex
+            });
+      };
 
       const quantityDown = () => {
             if(quantity > 1) {
@@ -34,10 +32,11 @@ const ItemInCart = ({ product, cartItemIndex }) => {
             }  
       }
   
-      const removeFromCart = () => {
+      const removeFromCart = (cartItemIndex) => {
+            // alert(cartItemIndex)
             dispatch({
                   type: "REMOVE_FROM_CART",
-                  id: product.id
+                  item: cartItemIndex
             });
       };
       
@@ -73,8 +72,8 @@ const ItemInCart = ({ product, cartItemIndex }) => {
                         > + 
                         </button>
                   </p>
-                        <p className= "getitemtotal">${getItemTotal(product)}</p>
-                  <button className = "delete" onClick = {removeFromCart}>x</button>
+                        <p className= "getitemtotal">${getItemTotal(product).toFixed(2)}</p>
+                  <button className = "delete" onClick = {()=> {removeFromCart(cartItemIndex)}}>x</button>
             </div>
       </div>
   );

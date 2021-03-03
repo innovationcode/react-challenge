@@ -26,7 +26,11 @@ const Cart = () => {
                               </div>
 
                               {cart.map((cartItem, cartItemIndex) => (
-                                    <ItemInCart product={cartItem} key = {cartItemIndex}/>
+                                    <ItemInCart 
+                                        key = {cartItemIndex}
+                                        product={cartItem}
+                                        cartItemIndex = {cartItemIndex}
+                                    />
                               ))}
                         </div>
 
