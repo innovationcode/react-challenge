@@ -8,6 +8,7 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import {Link} from 'react-router-dom';
 import Logo from './../../assets/tnooklogo.jpg';
 import { useStateValue } from './../../reducer/StateProvider.js';
+import { getICartQuantity } from './../../reducer/reducer.js';
 
 const Header = () => {
   const [{ cart }, dispatch] = useStateValue();
@@ -36,7 +37,7 @@ const Header = () => {
             <span style={{ fontSize: "13px", padding: "4px 10px" }}>cart</span>
             <Link to="/cart" className="no-decoration">
               <ShoppingCartIcon style = {{cursor:'pointer', color:'#008B8B'}}/>
-              <span className="cart_quantity_number">{cart.length}</span>
+              <span className="cart_quantity_number">{getICartQuantity(cart)}</span>
             </Link>
           </span>
         </div>

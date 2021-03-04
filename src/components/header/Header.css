@@ -96,3 +96,10 @@
 .header_bottom_navbar a {
   color: black;
 }
+
+@media only screen and (min-width: 800px) and (max-width: 1200px){
+  .header_social_cart {
+    /* border: 2px solid rgb(223, 69, 120); */
+    left: 72%;
+  } 
+}

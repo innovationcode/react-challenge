@@ -12,7 +12,7 @@ import Confirmation from './components/confirmation/Confirmation.js'
 
 import './App.css';
 
-console .log("STRIPE API : ",process.env.REACT_APP_STRIPE_KEY)
+// console .log("STRIPE API : ",process.env.REACT_APP_STRIPE_KEY)
 
 const promise = loadStripe(process.env.REACT_APP_STRIPE_KEY)
 

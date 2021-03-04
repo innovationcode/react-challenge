@@ -1,7 +1,7 @@
 import React from "react";
 import CurrencyFormat from "react-currency-format";
 import { useStateValue } from "./../../reducer/StateProvider.js";
-import { getCartTotal } from "./../../reducer/reducer.js";
+import { getCartTotal, getICartQuantity } from "./../../reducer/reducer.js";
 import { useHistory } from 'react-router-dom';
 
 import './SubTotal.css'
@@ -16,7 +16,7 @@ const Subtotal = () => {
                   renderText={(value) => (
                         <>
                         <p>
-                              Subtotal ({cart.length} items)  <span>{value}</span>
+                              Subtotal ({getICartQuantity(cart)} items)  <span>{value}</span>
                         </p>
                         <p>Shipping
                               <span style= {{paddingLeft:'170px'}}>enter zipcode</span>

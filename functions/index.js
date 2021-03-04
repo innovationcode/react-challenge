@@ -13,7 +13,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 dotenv.config();
 
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const stripe = require("stripe")("sk_test_lKL5mpbIp5XQh3X750dAA8yr00laScgXRm");
 
 const app = express();
 
@@ -25,7 +25,7 @@ app.get("/", (req, res) => {
 });
 
 
-app.post("/payments/create", async(req, res) => {
+app.post("/payments/create", async function(req, res) {
   const total = req.query.total;
   // console.log("payment received at backend ---> ", total);
   const paymentIntent = await stripe.paymentIntents.create({

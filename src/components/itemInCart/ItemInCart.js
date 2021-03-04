@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useStateValue } from './../../reducer/StateProvider.js';
 import { Link } from 'react-router-dom';
-import { getItemTotal, getCartTotal } from './../../reducer/reducer.js';
+import { getItemTotal } from './../../reducer/reducer.js';
 
 import "./ItemInCart.css";
 

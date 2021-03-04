@@ -4,6 +4,8 @@ export const initialState = {
     
 export const getItemTotal = (product) => (product.price * product.quantity);
 
+export const getICartQuantity = (product) => 
+    product?.reduce((initialQuantity, item) => initialQuantity + item.quantity, 0);
 
 //reduce function to get basket total
 export const getCartTotal = (basket) =>

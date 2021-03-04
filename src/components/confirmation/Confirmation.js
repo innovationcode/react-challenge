@@ -5,19 +5,43 @@ import './Confirmation.css';
 
 const Confirmation = (order_id) => {
     console.log("order id --- ",order_id.match.params.order_id)
-    const [order, setOrder] = useState([]);
+    const [showMainDiv, setShowMainDiv] = useState(true)
+    const [orders, setOrders] = useState([]);
 
-    useEffect(() =>{
-        
-    },[])
+    useEffect(() => {
+        if(order_id) {
+            db
+            .collection('orders')
+            .orderBy('created', 'desc')
+            .onSnapshot(snapshot => (
+                setOrders(snapshot.docs.map(doc => ({
+                        id: doc.id,
+                        data: doc.data()
+                    
+                })))
+            ))
+        } else {
+            setOrders([])
+        }
+    }, [order_id])
 
-    console.log("ORDER   --- > ",order)
+
+    console.log("ORDER   --- > ",orders)
     return (
-        <div className = "confirmation_main">
-            <div className = "confirmation_inner">
-                <h1 style = {{color:'rgb(2, 109, 109)', fontSize:'40px'}}>thank you</h1>
+        <>
+        {showMainDiv ?(
+            <div className = "confirmation_main">
+                <div className = "confirmation_inner">
+                    <span className = "confirmation_close" onClick = {() => {setShowMainDiv(false)}}>x</span>
+                    <h1>thank you !</h1>
+                </div>
             </div>
-        </div>
+        ):(
+           null 
+        )
+        
+        }
+        </>
     )
 }
 

@@ -1,12 +1,39 @@
 .confirmation_main {
-    width: 70vw;
-  min-height: 55vh;
-  max-height: auto;
-  margin: 0 auto;
-  margin-top: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding-top: 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.45);
+    z-index: 10000;
+}
+
+.confirmation_inner {
+  position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /* box-shadow: 0 0 6px 6px rgb(255 192 1); */
+    width: 60vw;
+    min-height: 80vh;
+    max-height: auto;
+    background-color: whitesmoke;
+}
+
+.confirmation_inner > h1 {
+  color:rgb(2, 109, 109);
+  font-size:40px;
+  width: 240px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px 0px;
+}
+
+.confirmation_close{
+  font-size: 18px;
+  position: absolute;
+  font-weight: 600;
+  top:2px;
+  left:98%;
+  cursor: pointer;
 }
