@@ -37,3 +37,9 @@
   left:98%;
   cursor: pointer;
 }
+
+.order_display {
+  overflow-y: scroll;
+  min-height: 60vh;
+  max-height: auto;
+}

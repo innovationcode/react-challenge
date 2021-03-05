@@ -1,5 +1,6 @@
 import React, {useState, useEffect } from 'react';
 import { db } from './../../firebase.js';
+import Order from './order/Order.js';
 
 import './Confirmation.css';
 
@@ -17,7 +18,6 @@ const Confirmation = (order_id) => {
                 setOrders(snapshot.docs.map(doc => ({
                         id: doc.id,
                         data: doc.data()
-                    
                 })))
             ))
         } else {
@@ -34,6 +34,17 @@ const Confirmation = (order_id) => {
                 <div className = "confirmation_inner">
                     <span className = "confirmation_close" onClick = {() => {setShowMainDiv(false)}}>x</span>
                     <h1>thank you !</h1>
+                    <div>
+                        <h3>Your Orders</h3>
+
+                        <div className='order_display'>
+                            {orders?.map(order => (
+                                <Order
+                                     
+                                    order={order} />
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </div>
         ):(
