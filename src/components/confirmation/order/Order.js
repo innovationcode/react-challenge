@@ -1,20 +1,19 @@
 import React from 'react'
 import './Order.css'
-import moment from "moment";
-import CurrencyFormat from "react-currency-format";
+// import moment from "moment";
+// import CurrencyFormat from "react-currency-format";
 
 const Order = ({ order }) => {
     console.log("ORDER in order **** :--", order)
     return (
         <div className='order_main'>
-            
-            <h2>Your order</h2>
+            {/* <h2>Your order</h2>
             <p>{moment.unix(order.data.created).format("MMMM Do YYYY, h:mma")}</p>
             <p className="order_id">
                 <small>{order.id}</small>
-            </p>
+            </p> */}
             <div>
-                {order.data.cart.map(orderItem => (
+                {/* {order.data.cart.map(orderItem => ( */}
                     <div className="confirm_order_item_display">
                         <img src={order.image} alt ="product_image" style = {{}}/>
                         <div>
@@ -25,10 +24,10 @@ const Order = ({ order }) => {
                             <p>price : &nbsp;  &nbsp;  &nbsp; ${order.price}</p>
                         </div>
                     </div>
-                ))} 
+                {/* ))} */}
             </div>
- 
-            <CurrencyFormat
+
+            {/* <CurrencyFormat
                 renderText={(value) => (
                     <h3 style = {{marginTop: '30px'}}>Order Total: {value}</h3>
                 )}
@@ -37,7 +36,7 @@ const Order = ({ order }) => {
                 displayType={"text"}
                 thousandSeparator={true}
                 prefix={"$"}                
-            />          
+            />          */}
         </div>
     )
 }
