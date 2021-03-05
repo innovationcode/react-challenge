@@ -128,7 +128,7 @@ const ProductDetail = (id) => {
                                     {product.product_id < 6? ( 
                                           
                                           <div className = "related_products">
-                                                      <img src={product.image}/>
+                                                      <img src={product.image} alt ="product_image"/>
                                                       <p>{product.title}</p>
                                                       <p>${product.price}</p>
                                           </div>

@@ -11,7 +11,7 @@ const ProductDisplay = ({ product }) => {
             <div className = "productdisplay_main">
                   <Link to= {`/product_detail/${product.product_id}`}  className = "no-decoration">
                         <div style = {{width: '100%'}}>
-                              <img src = {product.image}/>
+                              <img src = {product.image} alt ="product_image"/>
                         </div>
 
                         <div>

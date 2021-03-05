@@ -1,0 +1,20 @@
+.order_main {
+    padding:4px 15px;
+    /* border: 1px solid purple; */
+}
+
+.confirm_order_item_display {
+    margin-top: 20px;
+    display:flex;
+    padding-left: 120px;
+}
+
+.confirm_order_item_display img {
+    width: 90px;
+    height:120px;
+}
+
+.confirm_order_item_display p {
+    padding-left: 80px;
+    font-size: 14px;
+}
