@@ -1,14 +1,18 @@
 import React, { useState } from 'react'
 import { useStateValue } from './../../reducer/StateProvider.js';
 import { products } from './../../Data/data.js'
+import size_chart from './../../assets/size_chart.PNG';
+import Swal from 'sweetalert2';
 
 import './ProductDetail.css'
+// import { Link } from 'react-router-dom';
 
 const ProductDetail = (id) => {
       const [{ cart }, dispatch] = useStateValue();
       const [size, setSize] = useState('')
       const [color, setColor] = useState('')
       const [quantity, setQuantity] = useState(1)
+      const [showSizeChart, setshowSizeChart] = useState(false)
 
 
       // console.log("ID  : ", id)
@@ -41,7 +45,7 @@ const ProductDetail = (id) => {
 
       const addToCart = () => {
             if(!size && !color) {
-                  alert("Select size and color")
+                  Swal.fire("Select size and color")   
             } else {
                   dispatch({
                         type: "ADD_TO_CART",
@@ -73,7 +77,12 @@ const ProductDetail = (id) => {
                               </div>
                               <div className = "productdetail_size_color">
                                     <div className = "size-radio-buttons">
-                                          <p style = {{paddingBottom:'10px'}}>size <span style = {{color:'rgb(2, 109, 109)'}}>: size chart</span></p>
+                                          <p style = {{paddingBottom:'10px'}}>size 
+                                                <span style = {{color:'rgb(2, 109, 109)', cursor:'pointer'}} 
+                                                      onClick = {()=> setshowSizeChart(true)}>
+                                                            : size chart
+                                                </span>
+                                          </p>
                                           <form onChange = {handleSize}>
                                                 <input type="radio" name="size" value="0-12 months"/>0-12 months<br/>
                                                 <input type="radio" name="size" value="12-24 months"/>12-24 months<br/>
@@ -88,7 +97,7 @@ const ProductDetail = (id) => {
                                                       <input type="radio" name="color" value="Teal" />Teal<br/>
                                                       <span className="circle teal"></span>
                                                 </label>
-                                                <label class="container">
+                                                <label className="container">
                                                       <input type="radio" name="color" value="Mustard"/>Mustard<br/>
                                                       <span className="circle mustard"></span>
                                                 </label>
@@ -96,7 +105,7 @@ const ProductDetail = (id) => {
                                                       <input type="radio" name="color" value="Gray"/>Gray<br/>
                                                       <span className="circle gray"></span>
                                                 </label>
-                                                <label class="container">
+                                                <label className="container">
                                                       <input type="radio" name="color" value="Forest"/>Forest<br/>
                                                       <span className="circle forest"></span>
                                                 </label>
@@ -122,23 +131,40 @@ const ProductDetail = (id) => {
 
                   <div className = "productdetail_related_products">
                         <p style = {{marginBottom: '20px', fontSize:'17px'}}>Related Products</p>
-                        <div style = {{display:'flex', justifyContent:'space-evenly'}}>                       
+                        <div style = {{display:'flex', justifyContent:'space-evenly', padding:'0px 30px'}}>                       
                               {products.map(product => (
                                     <div key = {product.product_id}>
                                     {product.product_id < 6? ( 
-                                          
+                                          // <Link to= {`/product_detail/${product.product_id}`}  className = "no-decoration">
                                           <div className = "related_products">
                                                       <img src={product.image} alt ="product_image"/>
                                                       <p>{product.title}</p>
                                                       <p>${product.price}</p>
                                           </div>
+                                          // </Link>
                                     ) : null}
                               </div>
                         ))}
                         </div>
                   </div>
+
+                  {/* show size chart */}
+                  {showSizeChart && 
+                        <div className="show_size_chart">
+                              <div className="show_size_chart_inner">
+                                    <h3 style = {{color:'rgb(2, 109, 109)', fontSize:'25px', textAlign:'center', paddingBottom:'30px'}}>
+                                          Size chart
+                                    </h3>
+                                    <span className = "size_chart_close"
+                                          onClick = {()=> setshowSizeChart(false)}
+                                    >x</span>
+                                    <img src= {size_chart} alt='size-chart'/>
+                              </div>
+                        </div>
+                  }
             </div>
       )
 }
 
 export default ProductDetail;
+

@@ -10,7 +10,7 @@ const ProductList = () => {
             <div className = "productlist_main">
                   {products ? (
                         <div className = "productlist_inner">
-                              {products.map((product) => (
+                              {products.map((product, i) => (
                                     <div key={product.id} className="product_map">
                                           <ProductDisplay product={product} key={product.id}/>
                                     </div>

@@ -1,6 +1,8 @@
 export const initialState = {
-  cart: []
+  cart: [],
+  shippingAddress : []
 };
+
     
 export const getItemTotal = (product) => (product.price * product.quantity);
 
@@ -59,6 +61,12 @@ export const reducer = (state, action) => {
               ...state,
               cart: []
             };
+
+        case "ADD_SHIPPING_ADDRESS":
+          return {
+            ...state,
+            shippingAddress: [action.item.address]
+          };
 
         default:
             return state;

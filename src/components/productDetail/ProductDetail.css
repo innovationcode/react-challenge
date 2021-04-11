@@ -208,3 +208,34 @@
 .input_radio_checkout{
   padding-left: 20px;
 }
+
+.show_size_chart {
+  position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.45);
+    z-index: 10000;
+}
+
+.show_size_chart_inner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /* box-shadow: 0 0 2px 3px #f0bc8f; */
+    background: rgba(250, 250, 250, 0.932);
+    padding:20px;
+}
+
+.size_chart_close{
+  position: absolute;
+    right: 6px;
+    top: 4.3px;
+    font-weight: 600;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    font-size: 20px;
+}

@@ -6,7 +6,7 @@ import { getItemTotal } from './../../reducer/reducer.js';
 import "./ItemInCart.css";
 
 const ItemInCart = ({ product, cartItemIndex }) => {
-      console.log("cartItemIndex  ============>    ", cartItemIndex)
+      // console.log("cartItemIndex  ============>    ", cartItemIndex)
       const [quantity, setQuantity] = useState( product.quantity )
       const [{ cart }, dispatch] = useStateValue();
 
