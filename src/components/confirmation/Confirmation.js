@@ -1,15 +1,18 @@
-import React, {useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import { db } from './../../firebase.js';
 import Order from './order/Order.js';
 import moment from "moment";
 import CurrencyFormat from "react-currency-format";
+import { useHistory } from "react-router-dom";
 
 import './Confirmation.css';
+import { NavigateBeforeSharp } from '@material-ui/icons';
 
 const Confirmation = (order_id) => {
-    console.log("order id --- ",order_id.match.params.order_id, typeof(order_id.match.params.order_id))
+    // console.log("order id --- ",order_id.match.params.order_id, typeof(order_id.match.params.order_id))
     const [showMainDiv, setShowMainDiv] = useState(true)
     const [orders, setOrders] = useState([]);
+    const history = useHistory();
 
     useEffect(() => {
         if(order_id) {
@@ -18,27 +21,23 @@ const Confirmation = (order_id) => {
               .onSnapshot((doc) => {
                      console.log("Current data: ", doc.data());
                      setOrders(doc.data())
-               });
-            // db
-            // .collection('orders')
-            // .orderBy('created', 'desc')
-            // .onSnapshot(snapshot => (
-            //     setOrders(snapshot.docs.map(doc => ({
-            //             id: doc.id,
-            //             data: doc.data()
-            //     })))
-            // ))
+               })
         } else {
             setOrders([])
         }
     }, [order_id])
+
+    const handleClose = () => {
+        setShowMainDiv(false)
+        history.push('/')
+    }
 
     return (
         <>
         {showMainDiv ?(
             <div className = "confirmation_main">
                 <div className = "confirmation_inner">
-                    <span className = "confirmation_close" onClick = {() => {setShowMainDiv(false)}}>x</span>
+                    <span className = "confirmation_close" onClick = {() => {handleClose()}}>x</span>
                     <h1>thank you !</h1>
                         <div className='order_display'>
                             <h2>Your order</h2>
@@ -46,8 +45,21 @@ const Confirmation = (order_id) => {
                             <p className="order_id">
                                 <small>{order_id.match.params.order_id}</small>
                             </p>
+                            <h3 style= {{paddingTop:'10px'}}>Shipping address :</h3>
+                            <p>
+                                {orders && orders.deliveryAdress && 
+                                    orders.deliveryAdress.map(ad => 
+                                        <small>{ad.firstName} {ad.lastName} <br/>
+                                                {ad.addressLine1} , {ad.addressLine2} <br/>
+                                                {ad.city} - {ad.postalCode} <br/>
+                                                {ad.state} - USA
+                                        </small> 
+                                    )
+                                }
+                            </p>
+                            <h3 style= {{paddingTop:'10px'}}>Order details :</h3>  
                             {orders.cart?.map(order => (
-                                <Order
+                                <Order key={order.id}
                                     order={order} 
                                 />
                             ))}
@@ -55,7 +67,7 @@ const Confirmation = (order_id) => {
 
                         <CurrencyFormat
                             renderText={(value) => (
-                                <h3 style = {{paddingLeft:'30px'}}>Order Total: {value}</h3>
+                                <h3 style = {{padding:'30px'}}>Order Total: {value}</h3>
                             )}
                             decimalScale={2}
                             value={orders.amount / 100}

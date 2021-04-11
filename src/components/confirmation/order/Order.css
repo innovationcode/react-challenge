@@ -4,17 +4,17 @@
 }
 
 .confirm_order_item_display {
-    margin-top: 20px;
+    margin-top: 25px;
     display:flex;
-    padding-left: 120px;
+    padding-left: 160px;
 }
 
 .confirm_order_item_display img {
-    width: 90px;
+    width:90px;
     height:120px;
 }
 
 .confirm_order_item_display p {
-    padding-left: 80px;
+    padding-left: 50px;
     font-size: 14px;
 }

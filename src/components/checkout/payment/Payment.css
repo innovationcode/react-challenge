@@ -8,3 +8,28 @@
   flex-direction: column;
   padding-top: 20px;
 }
+
+
+.StripeElement {
+  /* border: 1px solid rgb(216, 138, 138); */
+  /* padding: 8px 15px; */
+  width:100%;
+  background-color: #f0bc8f;
+  padding: 10px 14px;
+  box-shadow: rgba(50, 50, 93, 0.14902) 0px 1px 3px, rgba(0, 0, 0, 0.0196078) 0px 1px 0px;
+  border-radius: 4px;
+}
+
+.StripeElement--invalid {
+  /* border: 1px solid rgb(102, 255, 0); */
+}
+
+.payment_priceContainer button {
+  background: rgb(2, 109, 109);
+  color: whitesmoke;
+  padding: 6px 18px;
+  border-radius: 4px;
+  /* margin: 23px 0px; */
+  font-size: 15px;
+  cursor: pointer;
+}

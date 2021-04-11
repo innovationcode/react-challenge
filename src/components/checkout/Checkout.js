@@ -3,21 +3,70 @@ import { Link } from 'react-router-dom';
 import { useStateValue } from './../../reducer/StateProvider.js';
 import CheckoutOrderSummary from './checkoutOrderSummary/CheckoutOrderSummary.js';
 import SubTotal from './../../components/subtotal/SubTotal.js';
-import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
+import { CountryDropdown, RegionDropdown, CountryRegionData } from 'react-country-region-selector';
 import CurrencyFormat from "react-currency-format";
 import { getCartTotal } from "./../../reducer/reducer.js";
+import Swal from 'sweetalert2';
 
 import './Checkout.css';
+import { FormLabel } from '@material-ui/core';
 
 const Checkout = () => {
       const [{ cart }, dispatch] = useStateValue();
+      const [address, setAddress] = useState({firstName: '', 
+                                              lastName: '', 
+                                              addressLine1: '', 
+                                              addressLine2: '', 
+                                              city: '', 
+                                              state: '',
+                                              postalCode: '', 
+                                              phone: '',
+                                              country : 'United States'
+                                             });
+      const [addressComplete, setAddressComplete] = useState(false)
       // const [country, setCountry] = useState('')
+
+      const handleAddressComplete = () => {
+            let valid = true;
+            for(let key in address) {
+                  if(key === 'firstName' || key === 'lastName'){ 
+                        if (address[key].length < 3 && typeof(address[key] !== String)) {
+                              valid = false
+                              alert("Enter name in correct format") 
+                        }      
+                  }
+                  
+                  if(key === 'postalCode' || key === 'phone'){ 
+                        if (key === 'phone' && address[key].length < 10) {
+                              Swal.fire("Enter correct phone number") 
+                              valid = false
+                        }     
+                  }
+
+            }
+            setTimeout(function() {
+                  if (valid) {
+                        return Swal.fire("Address complete", "Proceed to checkout").then(() => {
+                              dispatch({
+                                    type: "ADD_SHIPPING_ADDRESS",
+                                    item: {
+                                          address:address
+                                    }
+                              }); 
+                              if(getCartTotal(cart) > 0) {                             
+                                    setAddressComplete(true)
+                              } else {
+                                    Swal.fire("Oops...", "Cart total is ZERO")   
+                              }
+                        })
+                  }
+            }, 1000);        
+      }      
 
       return (
             <div className = "checkout_main">
                 <h1 style = {{color:'rgb(2, 109, 109)', fontSize:'40px', margin:'0 auto'}}>Checkout</h1> 
-                <div style = {{display:'flex'}}>
-                      {/* First div user info shipping card ... */}
+                <div style = {{display:'flex', margin:'0 auto'}}>
                       <div style = {{display: 'flex',
                                      flexDirection: 'column',
                                      minWidth: '55%'
@@ -28,111 +77,103 @@ const Checkout = () => {
                               </div>
                               <div className="user_details">
                                     <p style= {{marginBottom:'8px'}}>2. shipping </p>
-                                    {/* <span className = "shipping">shipping address</span><br/>
-                                    <label className = "shipping">country</label>
-                                    <CountryDropdown />
-                                    <div className = "shipping shipping_row_div">
-                                          <label>first name</label>
-                                          <input type ="text" />
-                                          <label>last name</label>
-                                          <input type ="text" />
-                                    </div>
-                                    <label className = "shipping">address line 1</label>
-                                    <input type ="text" />
-                                    <label className = "shipping">address line 2</label>
-                                    <input type ="text" />
-                                    <div className = "shipping shipping_row_div">
-                                          <label>city</label>
-                                          <input type ="text" />
-                                          <label>state</label>
-                                          <RegionDropdown />
-                                    </div>
-                                    <div className = "shipping shipping_row_div">
-                                          <label>postal code</label>
-                                          <input type ="text" />
-                                          <label>phone number</label>
-                                          <input type ="text" />
-                                    </div>
-                                    <input type="radio" className = "shipping"/>my billing address is same as the shipping address<br/>
-                                    <span>shipping method</span>
-                                    <input type="radio" className = "shipping"/>free<br/>
-                                    <input type="radio" className = "shipping"/>expedite<br/>
-                                    <button className = "submit">submit</button>
-                              </div> */}
-
-                              {/* ********************************************************* */}
-                              {/* ************************************************************************************************************** */}
-                                    <div class="container_checkout">
-                                          <form>
+                                   
+                                    <div className="container_checkout">
+                                          {/* <form> */}
                                           <div className = "label_input_column">
-                                                <label for="lname">country</label>
-                                                <CountryDropdown />
-                                                {/* <input type="text" id="country" name="country"/> */}
+                                                <label>country</label>
+                                                <CountryDropdown 
+                                                      value={address.country} disabled
+                                                />
                                           </div>
                                           <div className = 'label_input_row'>
                                                 <div className = "label_input_column">
-                                                      <label for="fname">first name</label>
-                                                      <input type="text" id="fname" name="firstname"/>
+                                                      <label>first name</label>
+                                                      <input type="text" 
+                                                             value={address.firstName}
+                                                             onChange= {e => setAddress({...address, firstName: e.target.value})}
+                                                      />
                                                 </div>
                                                 <p style= {{width:'20px'}}></p>
                                                 <div className = "label_input_column">
-                                                      <label for="lname">last name</label>
-                                                      <input type="text" id="lname" name="lastname"/>
+                                                      <label>last name</label>
+                                                      <input type="text" 
+                                                            value={address.lastName}
+                                                            onChange= {e => setAddress({...address, lastName: e.target.value})}
+                                                      />
                                                 </div>
                                           </div>
                                           <div className = "label_input_column">
-                                                <label for="lname">address line 1</label>
-                                                <input type="text" id="address1" name="address1"/>
+                                                <label>address line 1</label>
+                                                <input type="text" 
+                                                      value={address.addressLine1}
+                                                      onChange= {e => setAddress({...address, addressLine1: e.target.value})}
+                                                />                                          
                                           </div>
                                           <div className = "label_input_column">
-                                                <label for="lname">address line 2</label>
-                                                <input type="text" id="address2" name="address2"/>
+                                                <label>address line 2</label>
+                                                <input type="text" 
+                                                      value={address.addressLine2}
+                                                      onChange= {e => setAddress({...address, addressLine2: e.target.value})}
+                                                />                                           
                                           </div>
-                                          
                                           <div className = 'label_input_row'>
                                                 <div className = "label_input_column">
-                                                      <label for="fname">city</label>
-                                                      <input type="text" id="city" name="city"/>
+                                                      <label>city</label>
+                                                      <input type="text" 
+                                                            value={address.city}
+                                                            onChange= {e => setAddress({...address, city: e.target.value})}
+                                                      />                                                 
                                                 </div>
                                                 <p style= {{width:'20px'}}></p>     
                                                 <div className = "label_input_column">
-                                                      <label for="lname">state</label>
-                                                      <input type="text" id="state" name="state"/>
+                                                      <label>state</label>
+                                                      <RegionDropdown
+                                                            country={address.country}
+                                                            value={address.state}
+                                                            onChange= {e => setAddress({...address, state: e})}
+                                                      />
+                                                      {/* <input type="text" 
+                                                            value={address.state}
+                                                            onChange= {e => setAddress({...address, state: e.target.value})}
+                                                      />                                                 */}
                                                 </div>
-                                          </div>
-                                          
-                                          
+                                          </div>                         
                                           <div className = 'label_input_row'>
                                                 <div className = "label_input_column">
-                                                      <label for="fname">postal code</label>
-                                                      <input type="text" id="postal" name="postal"/>
+                                                      <label>postal code</label>
+                                                      <input type="text" 
+                                                            value={address.postalCode}
+                                                            onChange= {e => setAddress({...address, postalCode: e.target.value})}
+                                                      />                                                 
                                                 </div>      
                                                 <p style= {{width:'20px'}}></p>                          
                                                 <div className = "label_input_column">
-                                                      <label for="lname">phone number</label>
-                                                      <input type="text" id="phone" name="phone"/>
+                                                      <label>phone number</label>
+                                                      <input type="text" 
+                                                            value={address.phone}
+                                                            onChange= {e => setAddress({...address, phone: e.target.value})}
+                                                      />                                                 
                                                 </div>
                                           </div>
                                           
-                                          <input type="radio"  name="shippingAddress" value="shippingAddress"/>
-                                          <label for="shippingAddress" className= "input_radio_checkout">my billing is same as shipping address</label><br/>
+                                          <input type="radio"  name="shippingAddress" value="shippingAddress" checked disabled/>
+                                          <label className= "input_radio_checkout">my billing is same as shipping address</label><br/>
 
                                           <p style = {{margin:'10px 0px', fontSize:'18px'}}>shipping method</p>
 
-                                          <input type="radio"  name="shippingMethod" value="free" />
+                                          <input type="radio"  name="shippingMethod" value="free" checked disabled />
                                           <label className= "input_radio_checkout">free</label><br/>
                                           
-                                          <input type="radio"  name="shippingMethod" value="express" />
+                                          <input type="radio"  name="shippingMethod" value="express" disabled/>
                                           <label className= "input_radio_checkout">expedia</label><br/>
                                           
-                                          <br/><br/>
-                                          <input type="submit" value="Submit"/>
-
-                                          </form>
+                                          <br/>
+                                          <button onClick={handleAddressComplete}>
+                                                Address complete
+                                          </button>
                                     </div>
                               </div>                           
-                              
-                              {/* ********************************************************* */}
                               <div className = "user_details">
                                     <p>3. Billing </p>
                               </div>
@@ -147,7 +188,7 @@ const Checkout = () => {
                                     order summary 
                                     <Link to = '/cart' 
                                           style = {{textDecoration:'none', color:' rgb(2, 109, 109)'}}>
-                                          <span style= {{paddingLeft:'145px'}}>edit card</span>
+                                          <span style= {{paddingLeft:'145px'}}>edit cart</span>
                                     </Link>
                               </p>
                               <div style = {{paddingTop:'40px'}}>
@@ -183,9 +224,11 @@ const Checkout = () => {
                                                 prefix={"$"}
                                           />
                                           
-                                          <Link to = '/payment'><button>
-                                                Checkout
-                                          </button></Link>
+                                          <Link to = '/payment'>
+                                                <button disabled={!(addressComplete)}>
+                                                      Checkout
+                                                </button>
+                                          </Link>
                                     </div>
                               </div>
                       </div>

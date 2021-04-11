@@ -4,7 +4,7 @@ import './Order.css'
 // import CurrencyFormat from "react-currency-format";
 
 const Order = ({ order }) => {
-    console.log("ORDER in order **** :--", order)
+    // console.log("ORDER in order **** :--", order)
     return (
         <div className='order_main'>
             {/* <h2>Your order</h2>

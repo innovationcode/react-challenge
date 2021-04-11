@@ -6,11 +6,12 @@ import { useStateValue } from "./../../../reducer/StateProvider.js";
 import { useHistory } from 'react-router-dom';
 import axios from './../../../axios.js';
 import { db } from './../../../firebase.js';
+import Loader from './../../../assets/loader.gif';
 
 import './Payment.css'
 
 function Payment() {
-      const [{ cart }, dispatch] = useStateValue();
+      const [{ cart, shippingAddress }, dispatch] = useStateValue();
 
       const history = useHistory();    
 
@@ -41,13 +42,13 @@ function Payment() {
                         card: elements.getElement(CardElement)
                   }
             }).then(({ paymentIntent }) => {
-
                   db.collection('orders')
                     .doc(paymentIntent.id)
                     .set({
                             cart: cart, 
                             amount: paymentIntent.amount, 
-                            created: paymentIntent.created
+                            created: paymentIntent.created,
+                            deliveryAdress: shippingAddress
                      })
                   
                   setSucceeded(true);
@@ -55,7 +56,7 @@ function Payment() {
                   setProcessing(false);
 
                   dispatch({
-                        type :'EMPTY_CART'
+                        type : 'EMPTY_CART'
                   })
                   history.replace(`/confirmation/${paymentIntent.id}`)
             })
@@ -69,19 +70,28 @@ function Payment() {
       return (
             <div className = "payment_main">
                   <h1 style = {{color:'rgb(2, 109, 109)', fontSize:'40px', margin:'0 auto', marginBottom:'100px'}}>Payment</h1> 
-                
+
                   <form onSubmit = {handleSubmitCard}>
                         <CardElement onChange = {handleChange} style={{
                               
                                     base: {
+                                          border:'1px solid red',
+                                          iconColor: '#c4f0ff',
+                                          fontFamily: "Roboto !important",
                                           fontSize: '16px',
                                           color: '#424770',
                                           '::placeholder': {
                                                 color: '#aab7c4',
                                           },
+                                          fontSmoothing: 'antialiased',
+                                          ":-webkit-autofill": {color: "#fce883"},
+                                          ":-placeholder": {color: "#87bbfd"}
                                     },
                                     invalid: {
+                                          border:'1px solid red',
+
                                           color: '#9e2146',
+                                          iconColor:'#ffc7ee'
                                     },
                         
                               }}
@@ -92,8 +102,8 @@ function Payment() {
                                     renderText={(value) => (
                                           <>
                                           
-                                          <p>Total  
-                                                <span style= {{paddingLeft:'230px'}}><strong>{value}</strong></span>
+                                          <p style= {{padding:'15px 0px'}}>Total Amount :
+                                                <span style= {{paddingLeft:'20px'}}><strong>{value}</strong></span>
                                           </p>
                                           </>
                                     )}
@@ -107,8 +117,10 @@ function Payment() {
 
                               <button disabled= {processing || disabled || succeeded}>
                                     <span>{processing? <p>Processing</p> : "Buy Now"}</span>
-
                               </button>
+                              {processing && <div>
+                                    <img src = {Loader} alt="loading" style= {{width:'100px'}} />
+                              </div>}
                         </div>
 
                         {error && <div>{error}</div>}

@@ -32,12 +32,12 @@
   flex-direction: row;
 }
 
-.submit {
+.container_checkout button {
   background: rgb(2, 109, 109);
   color: whitesmoke;
   padding: 4px 14px;
   border-radius: 4px;
-  margin: 23px 0px;
+  margin: 10px 0px;
   font-size: 13px;
   cursor: pointer;
 }
@@ -94,4 +94,11 @@ input[type="submit"]:hover {
 
 .input_radio_checkout {
   padding-left: 27px;
+}
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
 }
